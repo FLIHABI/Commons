@@ -1,0 +1,64 @@
+// vim: set ft=groovy
+defaultTasks 'build'
+
+// Apply plugins
+apply plugin: 'cpp'
+
+// Basic project information
+group = 'FLIHABI'
+version = '0.0.1-SNAPSHOT'
+
+// Extended project information
+ext.projectName = 'Language Commons'
+ext.inceptionYear = '2015'
+ext.packaging = 'tar'
+ext.url = ''
+ext.description = 'Common library between farango and tolk.'
+ext.organization = 'FLIHABI'
+
+model {
+  components {
+    libcommons(NativeLibrarySpec) {
+      sources {
+        cpp {
+          source {
+            srcDir 'src/'
+            include '**/*.cc'
+          }
+          exportedHeaders {
+            srcDir 'include/'
+          }
+        }
+      }
+    }
+  }
+  buildTypes {
+    debug {}
+    release {}
+  }
+}
+
+def binariesByType(buildType) {
+  binaries.matching {
+    it.buildable && it.buildType.name == buildType
+  }
+}
+
+task release {
+  dependsOn binariesByType('release')
+}
+
+task debug {
+  dependsOn binariesByType('debug')
+}
+
+binaries.all {
+  if (toolChain in Gcc || toolChain in Clang) {
+    cppCompiler.args "-Wall", "-Wextra", "-std=c++14"
+    if (buildType == buildTypes.debug) {
+      cppCompiler.args "-g3", "-O0"
+    } else {
+      cppCompiler.args "-O3"
+    }
+  }
+}
