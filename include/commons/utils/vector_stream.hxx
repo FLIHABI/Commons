@@ -15,7 +15,7 @@ namespace vector_stream {
 template <typename T>
 std::vector<char>& operator<<(std::vector<char>& vec, const T v) {
     vector_stream::write(vec, v);
-    return v;
+    return vec;
 }
 
 #endif /* !VECTOR_STREAM_HXX_ */
