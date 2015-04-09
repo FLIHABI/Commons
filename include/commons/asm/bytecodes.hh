@@ -69,4 +69,18 @@ Object management
 
 };
 
+namespace bytecode {
+
+    constexpr static inline bool in_range_(const Bytecode& b, int low, int high) {
+        return b >= low && b <= high;
+    }
+
+    constexpr inline bool has_parameter(const Bytecode& b) {
+        return (in_range_(b, OP_PUSH, OP_POPR)
+             || in_range_(b, OP_CALL, OP_CALLR)
+             || in_range_(b, OP_JMP, OP_JGE)
+             || b == OP_CREATE);
+    }
+};
+
 #endif /* !BYTECODE_HH */
