@@ -23,7 +23,7 @@ Stack and register management
 
 /*
 ------------------------------------------------
-Arithmetic
+Arithmetic and bitwise
 ------------------------------------------------
 */
 
@@ -32,6 +32,12 @@ Arithmetic
     OP_MUL = 0x22,
     OP_DIV = 0x23,
     OP_MOD = 0x24,
+    OP_AND = 0x25,
+    OP_OR = 0x26,
+    OP_XOR = 0x27,
+    OP_NOT = 0x28,
+    OP_SHR = 0x29,
+    OP_SHL = 0x2A,
 
 /*
 ------------------------------------------------
