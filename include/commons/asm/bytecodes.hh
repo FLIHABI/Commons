@@ -16,6 +16,7 @@ Stack and register management
 ------------------------------------------------
 */
 
+    OP_SETR = 0x12,
     OP_POP = 0x13,
     OP_PUSH = 0x17,
     OP_PUSHR = 0x18,
