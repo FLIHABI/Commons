@@ -1,8 +1,9 @@
 #include "strtable.hh"
 
-using namespace tolk;
+namespace tolk
+{
 
-std::ostream& tolk::operator<<(std::ostream& out, const StrTable& strtable)
+std::ostream& operator<<(std::ostream& out, const StrTable& strtable)
 {
   char32_t size = strtable._table.size();
   out.write((char*) &size, sizeof (char32_t));
@@ -21,7 +22,7 @@ std::ostream& tolk::operator<<(std::ostream& out, const StrTable& strtable)
   return out;
 }
 
-std::istream& tolk::operator>>(std::istream& in, StrTable& strtable)
+std::istream& operator>>(std::istream& in, StrTable& strtable)
 {
   strtable._table.clear();
 
@@ -46,4 +47,6 @@ std::istream& tolk::operator>>(std::istream& in, StrTable& strtable)
   }
 
   return in;
+}
+
 }

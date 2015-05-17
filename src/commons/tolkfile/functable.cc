@@ -1,8 +1,8 @@
 #include "functable.hh"
 
-using namespace tolk;
-
-std::ostream& tolk::operator<<(std::ostream& out, const FuncTable& functable)
+namespace tolk
+{
+std::ostream& operator<<(std::ostream& out, const FuncTable& functable)
 {
   char32_t size = functable._table.size();
   out.write((char*) &size, sizeof (char32_t));
@@ -20,7 +20,7 @@ std::ostream& tolk::operator<<(std::ostream& out, const FuncTable& functable)
   return out;
 }
 
-std::istream& tolk::operator>>(std::istream& in, FuncTable& functable)
+std::istream& operator>>(std::istream& in, FuncTable& functable)
 {
   functable._table.clear();
 
@@ -41,4 +41,5 @@ std::istream& tolk::operator>>(std::istream& in, FuncTable& functable)
   }
 
   return in;
+}
 }

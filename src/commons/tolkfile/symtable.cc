@@ -1,8 +1,9 @@
 #include "symtable.hh"
 
-using namespace tolk;
+namespace tolk
+{
 
-std::ostream& tolk::operator<<(std::ostream& out, const SymTable& symtable)
+std::ostream& operator<<(std::ostream& out, const SymTable& symtable)
 {
   char32_t size = symtable._table.size();
   out.write((char*) &size, sizeof (char32_t));
@@ -16,7 +17,7 @@ std::ostream& tolk::operator<<(std::ostream& out, const SymTable& symtable)
   return out;
 }
 
-std::istream& tolk::operator>>(std::istream& in, SymTable& symtable)
+std::istream& operator>>(std::istream& in, SymTable& symtable)
 {
   symtable._table.clear();
 
@@ -35,4 +36,6 @@ std::istream& tolk::operator>>(std::istream& in, SymTable& symtable)
   }
 
   return in;
+}
+
 }

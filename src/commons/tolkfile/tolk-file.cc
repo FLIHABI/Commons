@@ -2,7 +2,8 @@
 
 #include <fstream>
 
-using namespace tolk;
+namespace tolk
+{
 
 std::ostream& operator<<(std::ostream& stream, const std::vector<char>& vec)
 {
@@ -86,7 +87,7 @@ bool TolkFile::save(std::ostream& stream) const
   return true;
 }
 
-std::ostream& tolk::operator<<(std::ostream& out, const TolkFile& tf)
+std::ostream& operator<<(std::ostream& out, const TolkFile& tf)
 {
   out << std::hex;
 
@@ -119,4 +120,6 @@ std::ostream& tolk::operator<<(std::ostream& out, const TolkFile& tf)
         << ", 0x" << func->second.registers_offset << std::endl;
 
   return out;
+}
+
 }
