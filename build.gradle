@@ -22,12 +22,9 @@ model {
       sources {
         cpp {
           source {
-            srcDir 'src/'
-            include '**/*.cc'
           }
           exportedHeaders {
             srcDir 'include/'
-            srcDir 'include/commons/tolkfile'
           }
         }
       }
