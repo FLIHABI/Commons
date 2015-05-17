@@ -27,6 +27,7 @@ model {
           }
           exportedHeaders {
             srcDir 'include/'
+            srcDir 'include/commons/tolkfile'
           }
         }
       }
