@@ -8,9 +8,9 @@
 # include <algorithm>
 # include <iostream>
 
-# include "symtable.hh"
-# include "strtable.hh"
-# include "functable.hh"
+# include "commons/tolkfile/symtable.hh"
+# include "commons/tolkfile/strtable.hh"
+# include "commons/tolkfile/functable.hh"
 
 # define MAGIC_1 0x54
 # define MAGIC_2 0x4F

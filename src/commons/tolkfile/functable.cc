@@ -1,4 +1,4 @@
-#include "functable.hh"
+#include "commons/tolkfile/functable.hh"
 
 namespace tolk
 {

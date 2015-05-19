@@ -1,4 +1,4 @@
-#include "strtable.hh"
+#include "commons/tolkfile/strtable.hh"
 
 namespace tolk
 {

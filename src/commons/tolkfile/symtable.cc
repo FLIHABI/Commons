@@ -1,4 +1,4 @@
-#include "symtable.hh"
+#include "commons/tolkfile/symtable.hh"
 
 namespace tolk
 {
