@@ -16,6 +16,8 @@ Stack and register management
 ------------------------------------------------
 */
 
+    OP_SAVE = 0x11,
+    OP_RESTORE = 0x12,
     OP_SETR = 0x12,
     OP_POP = 0x13,
     OP_PUSH = 0x17,
@@ -73,6 +75,8 @@ Object management
 
     OP_CREATE = 0x50,
     OP_DELETE = 0x51,
+    OP_READ = 0x52,
+    OP_WRITE = 0x53,
 
 };
 
@@ -88,6 +92,6 @@ namespace bytecode {
              || in_range_(b, OP_JMP, OP_JGE)
              || b == OP_CREATE);
     }
-};
+}
 
 #endif /* !BYTECODE_HH */
