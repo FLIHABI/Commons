@@ -90,6 +90,11 @@ namespace tolk
       std::copy(bytecode, bytecode + size, std::back_inserter(_bytecode));
     }
 
+    inline void set_bytecode(std::vector<char>& bytecode)
+    {
+      _bytecode = std::move(bytecode);
+    }
+
     friend std::ostream& operator<<(std::ostream& out, const TolkFile& tf);
   };
 
