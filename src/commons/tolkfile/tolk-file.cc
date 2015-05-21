@@ -49,7 +49,7 @@ std::shared_ptr<TolkFile> TolkFile::load(std::istream& stream)
   TolkFile tf;
 
   for (int i = 0; i < 4; ++i)
-    stream.read((char*) &tf._magic[i], sizeof (char32_t));
+    stream.read((char*) &tf._magic[i], sizeof (int8_t));
   stream.read((char*) &tf._entry_point, sizeof (char32_t));
 
   stream >> tf._symtable;
@@ -76,7 +76,7 @@ bool TolkFile::save(const std::string& filename) const
 bool TolkFile::save(std::ostream& stream) const
 {
   for (int i = 0; i < 4; ++i)
-    stream.write((char*) &_magic[i], sizeof (char32_t));
+    stream.write((char*) &_magic[i], sizeof (int8_t));
   stream.write((char*) &_entry_point, sizeof (char32_t));
 
   stream << _symtable;

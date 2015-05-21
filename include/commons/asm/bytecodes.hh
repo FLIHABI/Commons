@@ -87,10 +87,10 @@ namespace bytecode {
     }
 
     constexpr inline bool has_parameter(const Bytecode& b) {
-        return (in_range_(b, OP_PUSH, OP_POPR)
+        return ((in_range_(b, OP_PUSH, OP_POPR)
              || in_range_(b, OP_CALL, OP_CALLR)
              || in_range_(b, OP_JMP, OP_JGE)
-             || b == OP_CREATE);
+             || in_range_(b, OP_SAVE, OP_RESTORE)) && (b != OP_RET));
     }
 }
 

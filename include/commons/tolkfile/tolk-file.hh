@@ -13,9 +13,9 @@
 # include "commons/tolkfile/functable.hh"
 
 # define MAGIC_1 0x54
-# define MAGIC_2 0x4F
-# define MAGIC_3 0x4C
-# define MAGIC_4 0x4B
+# define MAGIC_2 0x52
+# define MAGIC_3 0x4F
+# define MAGIC_4 0x4C
 
 namespace tolk
 {
@@ -23,7 +23,7 @@ namespace tolk
   class TolkFile
   {
   private:
-    char32_t _magic[4] = { MAGIC_1, MAGIC_2, MAGIC_3, MAGIC_4 };
+    int8_t _magic[4] = {MAGIC_1, MAGIC_2, MAGIC_3, MAGIC_4};
     char32_t _entry_point = 0x0;
 
     SymTable  _symtable;
