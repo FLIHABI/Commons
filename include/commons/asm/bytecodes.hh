@@ -16,8 +16,8 @@ Stack and register management
 ------------------------------------------------
 */
 
-    OP_SAVE = 0x11,
-    OP_RESTORE = 0x12,
+    OP_SAVE = 0x10,
+    OP_RESTORE = 0x11,
     OP_SETR = 0x12,
     OP_POP = 0x13,
     OP_PUSH = 0x17,
@@ -57,7 +57,6 @@ Branching
 */
 
     OP_CALL = 0x40,
-    OP_CALLR = 0x49,
     OP_RET = 0x41,
     OP_JMP = 0x42,
     OP_JE = 0x43,
@@ -66,6 +65,7 @@ Branching
     OP_JNE = 0x46,
     OP_JLE = 0x47,
     OP_JGE = 0x48,
+    OP_CALLR = 0x49,
 
 /*
 ------------------------------------------------
