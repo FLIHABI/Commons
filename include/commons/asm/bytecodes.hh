@@ -79,6 +79,13 @@ Object management
     OP_READ = 0x52,
     OP_WRITE = 0x53,
 
+/*
+------------------------------------------------
+Parallel
+------------------------------------------------
+*/
+    OP_PCALL = 0xA0,
+    OP_PWAIT = 0xA1,
 };
 
 namespace bytecode {
@@ -90,6 +97,7 @@ namespace bytecode {
     constexpr inline bool has_parameter(const Bytecode& b) {
         return ((in_range_(b, OP_PUSH, OP_POPR)
              || in_range_(b, OP_CALL, OP_CALLR)
+             || b == OP_PCALL
              || in_range_(b, OP_JMP, OP_JGE)
              || in_range_(b, OP_SAVE, OP_RESTORE)) && (b != OP_RET));
     }
