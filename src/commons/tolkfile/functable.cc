@@ -15,6 +15,11 @@ std::ostream& operator<<(std::ostream& out, const FuncTable& functable)
     out.write((char*) &f.offset, sizeof (char32_t));
     out.write((char*) &f.registers, sizeof (char32_t));
     out.write((char*) &f.registers_offset, sizeof (int64_t));
+
+    char32_t size_ = i->second.params.size();
+    out.write((char*) &size_, sizeof (int64_t));
+    for (auto c : f.params)
+        out.write((char*) &c, sizeof (char32_t));
   }
 
   return out;
@@ -36,6 +41,16 @@ std::istream& operator>>(std::istream& in, FuncTable& functable)
     in.read((char*) &func.offset, sizeof (char32_t));
     in.read((char*) &func.registers, sizeof (char32_t));
     in.read((char*) &func.registers_offset, sizeof (int64_t));
+
+    char32_t size_ = 0;
+    in.read((char*) &size_, sizeof(char32_t));
+
+    for (char32_t i = 0; i < size_; ++i)
+    {
+        char32_t component = 0;
+        in.read((char*) &component, sizeof(char32_t));
+        func.params.push_back(component);
+    }
 
     functable._table.insert(std::pair<char32_t, Function>(id, func));
   }

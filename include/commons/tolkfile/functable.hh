@@ -3,6 +3,7 @@
 
 # include <map>
 # include <iostream>
+# include <vector>
 
 namespace tolk
 {
@@ -18,6 +19,9 @@ namespace tolk
 
     /** Offset of the registers */
     int64_t  registers_offset;
+
+    /** Information about parameters **/
+    std::vector<char32_t> params;
 
     Function(char32_t _offset, char32_t _registers, int64_t _registers_offset)
       : offset(_offset), registers(_registers), registers_offset(_registers_offset) {}
