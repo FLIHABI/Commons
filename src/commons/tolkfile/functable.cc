@@ -17,7 +17,7 @@ std::ostream& operator<<(std::ostream& out, const FuncTable& functable)
     out.write((char*) &f.registers_offset, sizeof (int64_t));
 
     char32_t size_ = i->second.params.size();
-    out.write((char*) &size_, sizeof (int64_t));
+    out.write((char*) &size_, sizeof (char32_t));
     for (auto c : f.params)
         out.write((char*) &c, sizeof (char32_t));
   }
