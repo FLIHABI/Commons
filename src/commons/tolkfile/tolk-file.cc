@@ -84,6 +84,8 @@ bool TolkFile::save(std::ostream& stream) const
   stream << _symtable;
   stream << _strtable;
   stream << _functable;
+  stream << _structtable;
+  stream << _uniontable;
   stream << _bytecode;
 
   return true;
