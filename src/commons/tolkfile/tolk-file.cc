@@ -55,6 +55,8 @@ std::shared_ptr<TolkFile> TolkFile::load(std::istream& stream)
   stream >> tf._symtable;
   stream >> tf._strtable;
   stream >> tf._functable;
+  stream >> tf._structtable;
+  stream >> tf._uniontable;
   stream >> tf._bytecode;
 
   return std::make_shared<TolkFile>(tf);

@@ -37,6 +37,6 @@ namespace tolk
     friend std::istream& operator>>(std::istream& in, StrTable& symtable);
   };
 
-};
+}
 
 #endif /* !_STRTABLE_HH_ */

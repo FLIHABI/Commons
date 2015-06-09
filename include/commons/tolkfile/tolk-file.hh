@@ -11,6 +11,7 @@
 # include "commons/tolkfile/symtable.hh"
 # include "commons/tolkfile/strtable.hh"
 # include "commons/tolkfile/functable.hh"
+# include "commons/tolkfile/structtable.hh"
 
 # define MAGIC_1 0x54
 # define MAGIC_2 0x52
@@ -26,9 +27,11 @@ namespace tolk
     int8_t _magic[4] = {MAGIC_1, MAGIC_2, MAGIC_3, MAGIC_4};
     char32_t _entry_point = 0x0;
 
-    SymTable  _symtable;
-    StrTable  _strtable;
-    FuncTable _functable;
+    SymTable    _symtable;
+    StrTable    _strtable;
+    FuncTable   _functable;
+    StructTable _structtable;
+    StructTable _uniontable;
 
     std::vector<char> _bytecode;
 
@@ -80,6 +83,26 @@ namespace tolk
       _functable = functable;
     }
 
+    inline const StructTable& get_structtable() const
+    {
+      return _structtable;
+    }
+
+    inline void set_structtable(const StructTable& structtable)
+    {
+      _structtable = structtable;
+    }
+
+    inline const StructTable& get_uniontable() const
+    {
+      return _uniontable;
+    }
+
+    inline void set_uniontable(const StructTable& uniontable)
+    {
+      _uniontable = uniontable;
+    }
+
     inline const std::vector<char>& get_bytecode() const
     {
       return _bytecode;
@@ -98,6 +121,6 @@ namespace tolk
     friend std::ostream& operator<<(std::ostream& out, const TolkFile& tf);
   };
 
-};
+}
 
 #endif /* !TOLK_FILE_HH_ */

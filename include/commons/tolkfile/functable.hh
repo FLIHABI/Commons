@@ -53,6 +53,6 @@ namespace tolk
     friend std::istream& operator>>(std::istream& in, FuncTable& symtable);
   };
 
-};
+}
 
 #endif /* !_FUNCTABLE_HH_ */
