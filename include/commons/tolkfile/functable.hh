@@ -23,6 +23,8 @@ namespace tolk
     /** Information about parameters **/
     std::vector<char32_t> params;
 
+    char32_t return_value = 0;
+
     Function(char32_t _offset, char32_t _registers, int64_t _registers_offset)
       : offset(_offset), registers(_registers), registers_offset(_registers_offset) {}
   };

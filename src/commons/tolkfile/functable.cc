@@ -20,6 +20,7 @@ std::ostream& operator<<(std::ostream& out, const FuncTable& functable)
     out.write((char*) &size_, sizeof (char32_t));
     for (auto c : f.params)
         out.write((char*) &c, sizeof (char32_t));
+    out.write((char*) &f.return_value, sizeof (char32_t));
   }
 
   return out;
@@ -51,6 +52,7 @@ std::istream& operator>>(std::istream& in, FuncTable& functable)
         in.read((char*) &component, sizeof(char32_t));
         func.params.push_back(component);
     }
+    in.read((char*) &func.return_value, sizeof(char32_t));
 
     functable._table.insert(std::pair<char32_t, Function>(id, func));
   }
