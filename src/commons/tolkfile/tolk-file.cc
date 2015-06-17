@@ -50,12 +50,14 @@ namespace tolk
     for (int i = 0; i < 4; ++i)
       stream.read((char*) &tf._magic[i], sizeof (int8_t));
     stream.read((char*) &tf._entry_point, sizeof (char32_t));
+    stream.read((char*) &tf._register_number, sizeof (char32_t));
 
     stream >> tf._symtable;
     stream >> tf._strtable;
     stream >> tf._functable;
     stream >> tf._structtable;
     stream >> tf._uniontable;
+    stream >> tf.arraytable;
     stream >> tf._bytecode;
 
     return std::make_shared<TolkFile>(tf);
@@ -79,12 +81,14 @@ namespace tolk
     for (int i = 0; i < 4; ++i)
       stream.write((char*) &_magic[i], sizeof (int8_t));
     stream.write((char*) &_entry_point, sizeof (char32_t));
+    stream.write((char*) &_register_number, sizeof (char32_t));
 
     stream << _symtable;
     stream << _strtable;
     stream << _functable;
     stream << _structtable;
     stream << _uniontable;
+    stream << _arraytable;
     stream << _bytecode;
 
     return true;

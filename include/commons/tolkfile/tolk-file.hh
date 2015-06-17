@@ -26,12 +26,14 @@ namespace tolk
   private:
     int8_t _magic[4] = {MAGIC_1, MAGIC_2, MAGIC_3, MAGIC_4};
     char32_t _entry_point = 0x0;
+    char32_t _register_number = 0x0;
 
     SymTable    _symtable;
     StrTable    _strtable;
     FuncTable   _functable;
     StructTable _structtable;
     StructTable _uniontable;
+    SymTable    _arraytable;
 
     std::vector<char> _bytecode;
 
@@ -51,6 +53,16 @@ namespace tolk
     inline void set_entry_point(char32_t entry_point)
     {
       _entry_point = entry_point;
+    }
+
+    inline char32_t get_register_number() const
+    {
+      return _register_number;
+    }
+
+    inline void set_register_number(char32_t register_number)
+    {
+      _register_number = register_number;
     }
 
     inline const SymTable& get_symtable() const
@@ -101,6 +113,16 @@ namespace tolk
     inline void set_uniontable(const StructTable& uniontable)
     {
       _uniontable = uniontable;
+    }
+
+    inline const StructTable& get_arraytable() const
+    {
+      return _arraytable;
+    }
+
+    inline void set_arraytable(const StructTable& arraytable)
+    {
+      _arraytable = arraytable;
     }
 
     inline const std::vector<char>& get_bytecode() const
