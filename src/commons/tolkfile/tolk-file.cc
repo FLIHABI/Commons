@@ -57,7 +57,7 @@ namespace tolk
     stream >> tf._functable;
     stream >> tf._structtable;
     stream >> tf._uniontable;
-    stream >> tf.arraytable;
+    stream >> tf._arraytable;
     stream >> tf._bytecode;
 
     return std::make_shared<TolkFile>(tf);

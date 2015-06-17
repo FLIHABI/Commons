@@ -115,12 +115,12 @@ namespace tolk
       _uniontable = uniontable;
     }
 
-    inline const StructTable& get_arraytable() const
+    inline const SymTable& get_arraytable() const
     {
       return _arraytable;
     }
 
-    inline void set_arraytable(const StructTable& arraytable)
+    inline void set_arraytable(const SymTable& arraytable)
     {
       _arraytable = arraytable;
     }
