@@ -67,6 +67,7 @@ Branching
     OP_JGE = 0x48,
     OP_CALLR = 0x49,
     OP_JMPS = 0x4A,
+    OP_ASK = 0x4B,
 
 /*
 ------------------------------------------------
@@ -98,6 +99,7 @@ namespace bytecode {
         return ((in_range_(b, OP_PUSH, OP_POPR)
              || in_range_(b, OP_CALL, OP_CALLR)
              || b == OP_PCALL
+             || b == OP_ASK
              || in_range_(b, OP_JMP, OP_JGE)
              || in_range_(b, OP_SAVE, OP_RESTORE)) && (b != OP_RET));
     }
