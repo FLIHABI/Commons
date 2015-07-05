@@ -6,10 +6,10 @@ namespace tolk
 {
   std::ostream& operator<<(std::ostream& stream, const std::vector<char>& vec)
   {
-    size_t size = vec.size();
-    stream.write((char*)&size, sizeof (size_t));
+    uint64_t size = vec.size();
+    stream.write((char*)&size, sizeof (uint64_t));
 
-    for (size_t i = 0; i < size; ++i)
+    for (uint64_t i = 0; i < size; ++i)
       stream.write((char*) &vec[i], sizeof(char));
 
     return stream;
@@ -19,12 +19,12 @@ namespace tolk
   {
     vec.clear();
 
-    size_t size = 0;
-    stream.read((char*)&size, sizeof (size_t));
+    uint64_t size = 0;
+    stream.read((char*)&size, sizeof (uint64_t));
 
     vec.resize(size);
 
-    for (size_t i = 0; i < size; ++i)
+    for (uint64_t i = 0; i < size; ++i)
       stream.read((char*) &vec[i], sizeof(char));
 
     return stream;
